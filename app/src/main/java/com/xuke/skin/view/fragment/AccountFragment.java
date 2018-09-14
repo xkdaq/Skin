@@ -85,7 +85,6 @@ public class AccountFragment extends BaseFragment {
 
                             }
                         }
-
                 );
                 break;
         }
