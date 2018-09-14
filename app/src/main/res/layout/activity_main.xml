@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.activity.MainActivity">
+
+    <com.xuke.skin.view.widget.FragementViewPager
+        android:id="@+id/vp_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <View
+        style="@style/DivideLine"
+        android:visibility="gone" />
+
+    <com.xuke.skin.view.widget.bottombarlayout.BottomBarLayout
+        android:id="@+id/bbl_main"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/bg_main"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.xuke.skin.view.widget.bottombarlayout.BottomBarItem
+            android:id="@+id/tab4_c2c"
+            style="@style/Main_radioButton"
+            app:iconNormal="@mipmap/icon_c2c_normal"
+            app:iconSelected="@mipmap/icon_c2c_selected"
+            app:itemMarginTop="4dp"
+            app:itemText="C2C"
+            app:itemTextSize="10sp"
+            app:textColorNormal="@color/c_9b9b9b"
+            app:textColorSelected="@color/c_439dff" />
+
+        <com.xuke.skin.view.widget.bottombarlayout.BottomBarItem
+            android:id="@+id/tab5_account"
+            style="@style/Main_radioButton"
+            app:iconNormal="@mipmap/icon_account_normal"
+            app:iconSelected="@mipmap/icon_account_selected"
+            app:itemMarginTop="4dp"
+            app:itemText="我的"
+            app:itemTextSize="10sp"
+            app:textColorNormal="@color/c_9b9b9b"
+            app:textColorSelected="@color/c_439dff" />
+
+
+    </com.xuke.skin.view.widget.bottombarlayout.BottomBarLayout>
+
+</LinearLayout>

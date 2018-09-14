@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E0E0E0</color>
+    <color name="colorPrimaryDark">#E0E0E0</color>
+    <color name="colorAccent">#E0E0E0</color>
+
+    <!--主页main的底部背景-->
+    <color name="bg_main">#FFFFFF</color>
+    <!--主页main下面文字选中颜色-->
+    <color name="c_439dff">#439DFF</color>
+    <!--背景颜色-->
+    <color name="black">#F9F9F9</color>
+    <!--account bar背景颜色-->
+    <color name="c_71beff">#71BEFF</color>
+    <!--cardview-->
+    <color name="bg_cardview">#FFFFFF</color>
+    <!--cardview文字-->
+    <color name="c_9b9b9b">#9B9B9B</color>
+    <!--market bar背景颜色-->
+    <color name="bg_bar">#FFFFFF</color>
+    <!--market pagerTab背景颜色-->
+    <color name="bg_tab">#FFFFFF</color>
+    <!--market pagerTab选中文字颜色-->
+    <color name="c_3b99ff">#3B99FF</color>
+    <color name="bg_title">#64f0f0f0</color>
+    <color name="bg_transparent">#00000000</color>
+    <!--market title文字颜色-->
+    <color name="c_4a4a4a">#4A4A4A</color>
+
+
+    <color name="white">#FFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="transparent">#00000000</color>
+    <color name="c_f9f9f9">#F9F9F9</color>
+
+</resources>
