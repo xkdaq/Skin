@@ -3,16 +3,16 @@ package com.xuke.skin.view.activity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
+import solid.ren.skinlibrary.base.SkinBaseActivity;
 
 /**
  * Created by kekex on 2018/8/20.
  * MainActivity的基类
  */
 
-public abstract class BaseMainActivity extends AppCompatActivity {
+public abstract class BaseMainActivity extends SkinBaseActivity {
 
     protected Activity context;
 

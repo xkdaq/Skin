@@ -1,6 +1,7 @@
 package com.xuke.skin.view.fragment;
 
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -8,6 +9,8 @@ import com.xuke.skin.R;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import solid.ren.skinlibrary.SkinLoaderListener;
+import solid.ren.skinlibrary.loader.SkinManager;
 
 /**
  * Created by kekex on 2018/8/21.
@@ -55,9 +58,35 @@ public class AccountFragment extends BaseFragment {
                 break;
             case R.id.cv_account_security:
                 //安全Security
+                SkinManager.getInstance().restoreDefaultTheme();
                 break;
             case R.id.cv_account_setting:
                 //设置Setting
+                SkinManager.getInstance().loadSkin("theme-20180914.skin",
+                        new SkinLoaderListener() {
+                            @Override
+                            public void onStart() {
+                                Log.i("SkinLoaderListener", "正在切换中");
+                            }
+
+                            @Override
+                            public void onSuccess() {
+                                Log.i("SkinLoaderListener", "切换成功");
+                            }
+
+                            @Override
+                            public void onFailed(String errMsg) {
+                                Log.i("SkinLoaderListener", "切换失败:" + errMsg);
+                            }
+
+                            @Override
+                            public void onProgress(int progress) {
+                                Log.i("SkinLoaderListener", "皮肤文件下载中:" + progress);
+
+                            }
+                        }
+
+                );
                 break;
         }
     }

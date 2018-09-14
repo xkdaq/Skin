@@ -1,4 +1,4 @@
-package solid.ren.themeskinning.custom_attr;
+package com.xuke.skin.skinattr;
 
 import android.support.design.widget.TabLayout;
 import android.view.View;

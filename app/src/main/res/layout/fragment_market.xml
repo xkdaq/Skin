@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:skin="http://schemas.android.com/android/skin"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    skin:enable="true">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -17,7 +20,8 @@
             android:paddingBottom="10dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingTop="10dp">
+            android:paddingTop="10dp"
+            skin:enable="true">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -25,7 +29,9 @@
                 android:layout_centerVertical="true"
                 android:text="Markets"
                 android:textColor="@color/c_4a4a4a"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                skin:enable="true"
+                tools:ignore="MissingPrefix" />
 
             <ImageView
                 android:id="@+id/iv_markets_favourites"
@@ -57,7 +63,9 @@
             android:id="@+id/tab_markets"
             android:layout_width="match_parent"
             android:layout_height="32dp"
-            app:pstsShouldExpand="true" />
+            android:background="@color/bg_tab"
+            app:pstsShouldExpand="true"
+            skin:enable="true" />
 
     </android.support.design.widget.AppBarLayout>
 

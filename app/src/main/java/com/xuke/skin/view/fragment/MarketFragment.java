@@ -81,11 +81,13 @@ public class MarketFragment extends BaseFragment {
         //设置TabIndicator的颜色
         tabMarkets.setSelectedTextColor(getResources().getColor(R.color.c_3b99ff));
         tabMarkets.setIndicatorColor(getResources().getColor(R.color.c_3b99ff));
-        tabMarkets.setBackgroundColor(getResources().getColor(R.color.bg_tab));
+        //tabMarkets.setBackgroundColor(getResources().getColor(R.color.bg_tab));
         //每个tab左右之间的距离
         tabMarkets.setTabPaddingLeftRight(50);
         //tab不要自动大写
         tabMarkets.setAllCaps(false);
+
+        dynamicAddView(tabMarkets, "tabLayoutIndicator", R.color.c_3b99ff);
     }
 
 

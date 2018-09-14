@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:skin="http://schemas.android.com/android/skin"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    skin:enable="true">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/ll_info"
@@ -15,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/c_71beff"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            skin:enable="true">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -24,8 +28,10 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="11dp"
                 android:text="Account"
-                android:textColor="@color/white"
-                android:textSize="24sp" />
+                android:textColor="@color/c_4a4a4a"
+                android:textSize="24sp"
+                skin:enable="true"
+                tools:ignore="MissingPrefix" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -38,11 +44,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-
                     android:text="会唱情歌的小猴子"
-                    android:textColor="@color/white"
+                    android:textColor="@color/c_9b9b9b"
                     android:textSize="18sp"
-                    android:visibility="visible" />
+                    android:visibility="visible"
+                    skin:enable="true"
+                    tools:ignore="MissingPrefix" />
 
             </LinearLayout>
 
@@ -57,12 +64,15 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/ll_info"
         android:layout_marginTop="5dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        skin:enable="true"
+        tools:ignore="MissingPrefix">
 
         <android.support.v7.widget.CardView
             android:id="@+id/cv_account_fund"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             app:cardCornerRadius="4.0dip"
@@ -78,7 +88,8 @@
                     android:background="@color/bg_cardview"
                     android:orientation="vertical"
                     android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    android:paddingRight="10dp"
+                    skin:enable="true">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -87,9 +98,10 @@
                         android:drawableLeft="@mipmap/icon_account_fund"
                         android:drawablePadding="10dp"
                         android:drawableStart="@mipmap/icon_account_fund"
-                        android:text="Fund"
+                        android:text="基金"
                         android:textColor="@color/c_9b9b9b"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        skin:enable="true" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -123,7 +135,8 @@
                     android:background="@color/bg_cardview"
                     android:orientation="vertical"
                     android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    android:paddingRight="10dp"
+                    skin:enable="true">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -132,9 +145,10 @@
                         android:drawableLeft="@mipmap/icon_account_rp"
                         android:drawablePadding="10dp"
                         android:drawableStart="@mipmap/icon_account_rp"
-                        android:text="Rp"
+                        android:text="钱包"
                         android:textColor="@color/c_9b9b9b"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        skin:enable="true" />
 
 
                     <ImageView
@@ -169,7 +183,8 @@
                     android:background="@color/bg_cardview"
                     android:orientation="vertical"
                     android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    android:paddingRight="10dp"
+                    skin:enable="true">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -178,9 +193,10 @@
                         android:drawableLeft="@mipmap/icon_account_auth"
                         android:drawablePadding="10dp"
                         android:drawableStart="@mipmap/icon_account_auth"
-                        android:text="Auth"
+                        android:text="身份认证"
                         android:textColor="@color/c_9b9b9b"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        skin:enable="true" />
 
 
                     <ImageView
@@ -215,7 +231,8 @@
                     android:background="@color/bg_cardview"
                     android:orientation="vertical"
                     android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    android:paddingRight="10dp"
+                    skin:enable="true">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -224,9 +241,10 @@
                         android:drawableLeft="@mipmap/icon_account_security"
                         android:drawablePadding="10dp"
                         android:drawableStart="@mipmap/icon_account_security"
-                        android:text="Security"
+                        android:text="默认皮肤"
                         android:textColor="@color/c_9b9b9b"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        skin:enable="true" />
 
 
                     <ImageView
@@ -261,7 +279,8 @@
                     android:background="@color/bg_cardview"
                     android:orientation="vertical"
                     android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    android:paddingRight="10dp"
+                    skin:enable="true">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -270,9 +289,10 @@
                         android:drawableLeft="@mipmap/icon_account_setting"
                         android:drawablePadding="10dp"
                         android:drawableStart="@mipmap/icon_account_setting"
-                        android:text="Setting"
+                        android:text="深色皮肤"
                         android:textColor="@color/c_9b9b9b"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        skin:enable="true" />
 
 
                     <ImageView

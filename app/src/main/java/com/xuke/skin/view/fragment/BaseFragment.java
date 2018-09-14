@@ -11,13 +11,14 @@ import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import solid.ren.skinlibrary.base.SkinBaseFragment;
 
 /**
  * Created by kekex on 2018/8/21.
  * fragment的基类
  */
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends SkinBaseFragment {
 
     protected Context context;
     protected LayoutInflater layoutInflater;

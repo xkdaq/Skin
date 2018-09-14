@@ -11,7 +11,7 @@
     <!--背景颜色-->
     <color name="black">#F9F9F9</color>
     <!--account bar背景颜色-->
-    <color name="c_71beff">#71BEFF</color>
+    <color name="c_71beff">#FFFFFF</color>
     <!--cardview-->
     <color name="bg_cardview">#FFFFFF</color>
     <!--cardview文字-->
@@ -22,7 +22,7 @@
     <color name="bg_tab">#FFFFFF</color>
     <!--market pagerTab选中文字颜色-->
     <color name="c_3b99ff">#3B99FF</color>
-    <color name="bg_title">#64f0f0f0</color>
+    <color name="bg_title">#00000000</color>
     <color name="bg_transparent">#00000000</color>
     <!--market title文字颜色-->
     <color name="c_4a4a4a">#4A4A4A</color>
