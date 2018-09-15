@@ -24,11 +24,18 @@ import com.xuke.skin.util.UIUtils;
 public class BottomBarItem extends LinearLayout {
 
     private Context mContext;
-    //private int mIconNormalResourceId;//普通状态图标的资源id
-    //private int mIconSelectedResourceId;//选中状态图标的资源id
-
-    private Drawable mIconNormalDrawable;//普通状态图标的资源id
-    private Drawable mIconSelectedDrawable;//选中状态图标的资源id
+    private Drawable mIconNormalDrawable;           //普通状态图标的资源id
+    private Drawable mIconSelectedDrawable;         //选中状态图标的资源id
+    private String mText;                           //文本
+    private int mTextSize = 12;                     //文字大小 默认为12sp
+    private int mTextColorNormal = 0xFF999999;      //描述文本的默认显示颜色
+    private int mTextColorSelected = 0xFF46C01B;    //述文本的默认选中显示颜色
+    private int mMarginTop = 0;                     //文字和图标的距离,默认0dp
+    private boolean mOpenTouchBg = false;           //是否开启触摸背景，默认关闭
+    private Drawable mTouchDrawable;                //触摸时的背景
+    private int mIconWidth;                         //图标的宽度
+    private int mIconHeight;                        //图标的高度
+    private int mItemPadding;                       //BottomBarItem的padding
 
 
     public void setmIconNormalDrawable(Drawable mIconNormalDrawable) {
@@ -39,42 +46,18 @@ public class BottomBarItem extends LinearLayout {
         this.mIconSelectedDrawable = mIconSelectedDrawable;
     }
 
-    private String mText;//文本
-    private int mTextSize = 12;//文字大小 默认为12sp
-    private int mTextColorNormal = 0xFF999999;    //描述文本的默认显示颜色
-    private int mTextColorSelected = 0xFF46C01B;  //述文本的默认选中显示颜色
-    private int mMarginTop = 0;//文字和图标的距离,默认0dp
-    private boolean mOpenTouchBg = false;// 是否开启触摸背景，默认关闭
-    private Drawable mTouchDrawable;//触摸时的背景
-    private int mIconWidth;//图标的宽度
-    private int mIconHeight;//图标的高度
-    private int mItemPadding;//BottomBarItem的padding
-
-
-//    public void mIconSelectedResourceId(int mImageSelected) {
-//        this.mIconSelectedResourceId = mImageSelected;
-//    }
-
     public void setmTextColorSelected(int mTextColorSelected) {
         this.mTextColorSelected = mTextColorSelected;
     }
 
-
     public void setStatus(boolean isSelected) {
-        //mImageView.setImageResource(isSelected ? mIconSelectedResourceId : mIconNormalResourceId);
         mImageView.setImageDrawable(isSelected ? mIconSelectedDrawable : mIconNormalDrawable);
         mTextView.setTextColor(isSelected ? mTextColorSelected : mTextColorNormal);
     }
 
-
     private ImageView mImageView;
-    private TextView mTvUnread;
-    private TextView mTvNotify;
-    private TextView mTvMsg;
     private TextView mTextView;
 
-    private int mUnreadTextSize = 10; //未读数默认字体大小10sp
-    private int mMsgTextSize = 6; //消息默认字体大小6sp
 
 
     public BottomBarItem(Context context) {
@@ -91,9 +74,6 @@ public class BottomBarItem extends LinearLayout {
         mContext = context;
 
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.BottomBarItem);
-
-        //mIconNormalResourceId = ta.getResourceId(R.styleable.BottomBarItem_iconNormal, -1);
-        //mIconSelectedResourceId = ta.getResourceId(R.styleable.BottomBarItem_iconSelected, -1);
 
         mIconNormalDrawable = ta.getDrawable(R.styleable.BottomBarItem_iconNormalDrawable);
         mIconSelectedDrawable = ta.getDrawable(R.styleable.BottomBarItem_iconSelectedDrawable);
@@ -112,12 +92,7 @@ public class BottomBarItem extends LinearLayout {
         mIconWidth = ta.getDimensionPixelSize(R.styleable.BottomBarItem_iconWidth, 0);
         mIconHeight = ta.getDimensionPixelSize(R.styleable.BottomBarItem_iconHeight, 0);
         mItemPadding = ta.getDimensionPixelSize(R.styleable.BottomBarItem_itemPadding, 0);
-
-        mUnreadTextSize = ta.getDimensionPixelSize(R.styleable.BottomBarItem_unreadTextSize, UIUtils.sp2px(mContext, mUnreadTextSize));
-        mMsgTextSize = ta.getDimensionPixelSize(R.styleable.BottomBarItem_msgTextSize, UIUtils.sp2px(mContext, mMsgTextSize));
-
         ta.recycle();
-
         checkValues();
         init();
     }
@@ -126,14 +101,6 @@ public class BottomBarItem extends LinearLayout {
      * 检查传入的值是否完善
      */
     private void checkValues() {
-//        if (mIconNormalResourceId == -1) {
-//            throw new IllegalStateException("您还没有设置默认状态下的图标，请指定iconNormal的图标");
-//        }
-//
-//        if (mIconSelectedResourceId == -1) {
-//            throw new IllegalStateException("您还没有设置选中状态下的图标，请指定iconSelected的图标");
-//        }
-
         if (mOpenTouchBg && mTouchDrawable == null) {
             //如果有开启触摸背景效果但是没有传对应的drawable
             throw new IllegalStateException("开启了触摸效果，但是没有指定touchDrawable");
@@ -150,16 +117,11 @@ public class BottomBarItem extends LinearLayout {
             view.setPadding(mItemPadding, mItemPadding, mItemPadding, mItemPadding);
         }
         mImageView = (ImageView) view.findViewById(R.id.iv_icon);
-        mTvUnread = (TextView) view.findViewById(R.id.tv_unred_num);
-        mTvMsg = (TextView) view.findViewById(R.id.tv_msg);
-        mTvNotify = (TextView) view.findViewById(R.id.tv_point);
         mTextView = (TextView) view.findViewById(R.id.tv_text);
 
         if (mIconNormalDrawable != null) {
             mImageView.setImageDrawable(mIconNormalDrawable);
         }
-
-        //mImageView.setImageResource(mIconNormalResourceId);
 
         if (mIconWidth != 0 && mIconHeight != 0) {
             //如果有设置图标的宽度和高度，则设置ImageView的宽高
@@ -170,8 +132,6 @@ public class BottomBarItem extends LinearLayout {
         }
 
         mTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);//设置底部文字字体大小
-        mTvUnread.setTextSize(TypedValue.COMPLEX_UNIT_PX, mUnreadTextSize);//设置未读数的字体大小
-        mTvMsg.setTextSize(TypedValue.COMPLEX_UNIT_PX, mMsgTextSize);//设置提示文字的字体大小
 
         mTextView.setTextColor(mTextColorNormal);//设置底部文字字体颜色
         mTextView.setText(mText);//设置标签文字
@@ -186,64 +146,5 @@ public class BottomBarItem extends LinearLayout {
         }
 
         addView(view);
-    }
-
-    public ImageView getImageView() {
-        return mImageView;
-    }
-
-    public TextView getTextView() {
-        return mTextView;
-    }
-
-//    public void setIconNormalResourceId(int mIconNormalResourceId) {
-//        this.mIconNormalResourceId = mIconNormalResourceId;
-//    }
-//
-//    public void setIconSelectedResourceId(int mIconSelectedResourceId) {
-//        this.mIconSelectedResourceId = mIconSelectedResourceId;
-//    }
-
-
-    private void setTvVisiable(TextView tv) {
-        //都设置为不可见
-        mTvUnread.setVisibility(GONE);
-        mTvMsg.setVisibility(GONE);
-        mTvNotify.setVisibility(GONE);
-
-        tv.setVisibility(VISIBLE);//设置为可见
-    }
-
-    /**
-     * 设置未读数
-     *
-     * @param unreadNum 小于等于0则隐藏，大于0小于99则显示对应数字，超过99显示99+
-     */
-    public void setUnreadNum(int unreadNum) {
-        setTvVisiable(mTvUnread);
-        if (unreadNum <= 0) {
-            mTvUnread.setVisibility(GONE);
-        } else if (unreadNum <= 99) {
-            mTvUnread.setText(String.valueOf(unreadNum));
-        } else {
-            mTvUnread.setText("99+");
-        }
-    }
-
-    public void setMsg(String msg) {
-        setTvVisiable(mTvMsg);
-        mTvMsg.setText(msg);
-    }
-
-    public void hideMsg() {
-        mTvMsg.setVisibility(GONE);
-    }
-
-    public void showNotify() {
-        setTvVisiable(mTvNotify);
-    }
-
-    public void hideNotify() {
-        mTvNotify.setVisibility(GONE);
     }
 }
