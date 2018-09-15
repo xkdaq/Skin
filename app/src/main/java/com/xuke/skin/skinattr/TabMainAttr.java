@@ -1,7 +1,6 @@
 package com.xuke.skin.skinattr;
 
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.View;
 
 import com.xuke.skin.view.widget.bottombarlayout.BottomBarItem;
@@ -21,7 +20,7 @@ public class TabMainAttr extends SkinAttr {
                 tl.setmTextColorSelected(color);
             }
 
-            if (isDrawable()){
+            if (isDrawable()) {
                 Drawable drawable = SkinResourcesUtils.getDrawable(attrValueRefId);
                 tl.setmIconSelectedDrawable(drawable);
             }

@@ -55,6 +55,7 @@ public class AccountFragment extends BaseFragment {
                 break;
             case R.id.cv_account_auth:
                 //身份验证Identity Authentication
+                SkinManager.getInstance().NightMode();
                 break;
             case R.id.cv_account_security:
                 //安全Security

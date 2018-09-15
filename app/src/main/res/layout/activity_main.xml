@@ -30,8 +30,8 @@
         <com.xuke.skin.view.widget.bottombarlayout.BottomBarItem
             android:id="@+id/tab4_c2c"
             style="@style/Main_radioButton"
-            app:iconNormal="@mipmap/icon_c2c_normal"
-            app:iconSelected="@mipmap/icon_c2c_selected"
+            app:iconNormalDrawable="@mipmap/icon_c2c_normal"
+            app:iconSelectedDrawable="@mipmap/icon_c2c_selected"
             app:itemMarginTop="4dp"
             app:itemText="C2C"
             app:itemTextSize="10sp"
@@ -42,8 +42,8 @@
         <com.xuke.skin.view.widget.bottombarlayout.BottomBarItem
             android:id="@+id/tab5_account"
             style="@style/Main_radioButton"
-            app:iconNormal="@mipmap/icon_account_normal"
-            app:iconSelected="@mipmap/icon_account_selected"
+            app:iconNormalDrawable="@mipmap/icon_account_normal"
+            app:iconSelectedDrawable="@mipmap/icon_account_selected"
             app:itemMarginTop="4dp"
             app:itemText="我的"
             app:itemTextSize="10sp"

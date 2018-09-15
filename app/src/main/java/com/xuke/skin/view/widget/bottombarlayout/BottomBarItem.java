@@ -95,6 +95,9 @@ public class BottomBarItem extends LinearLayout {
         //mIconNormalResourceId = ta.getResourceId(R.styleable.BottomBarItem_iconNormal, -1);
         //mIconSelectedResourceId = ta.getResourceId(R.styleable.BottomBarItem_iconSelected, -1);
 
+        mIconNormalDrawable = ta.getDrawable(R.styleable.BottomBarItem_iconNormalDrawable);
+        mIconSelectedDrawable = ta.getDrawable(R.styleable.BottomBarItem_iconSelectedDrawable);
+
         mText = ta.getString(R.styleable.BottomBarItem_itemText);
         mTextSize = ta.getDimensionPixelSize(R.styleable.BottomBarItem_itemTextSize, UIUtils.sp2px(mContext, mTextSize));
 
