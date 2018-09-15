@@ -1,6 +1,7 @@
 package com.xuke.skin;
 
 import com.xuke.skin.skinattr.TabLayoutIndicatorAttr;
+import com.xuke.skin.skinattr.TabMainAttr;
 
 import solid.ren.skinlibrary.SkinConfig;
 import solid.ren.skinlibrary.base.SkinBaseApplication;
@@ -23,5 +24,9 @@ public class MyApplication extends SkinBaseApplication {
 
 
         SkinConfig.addSupportAttr("tabLayoutIndicator", new TabLayoutIndicatorAttr());
+
+        SkinConfig.addSupportAttr("mainIndicator_color", new TabMainAttr());
+
+        SkinConfig.addSupportAttr("mipmap", new TabMainAttr());
     }
 }

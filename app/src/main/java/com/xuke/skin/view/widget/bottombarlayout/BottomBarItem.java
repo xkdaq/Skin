@@ -24,8 +24,21 @@ import com.xuke.skin.util.UIUtils;
 public class BottomBarItem extends LinearLayout {
 
     private Context mContext;
-    private int mIconNormalResourceId;//普通状态图标的资源id
-    private int mIconSelectedResourceId;//选中状态图标的资源id
+    //private int mIconNormalResourceId;//普通状态图标的资源id
+    //private int mIconSelectedResourceId;//选中状态图标的资源id
+
+    private Drawable mIconNormalDrawable;//普通状态图标的资源id
+    private Drawable mIconSelectedDrawable;//选中状态图标的资源id
+
+
+    public void setmIconNormalDrawable(Drawable mIconNormalDrawable) {
+        this.mIconNormalDrawable = mIconNormalDrawable;
+    }
+
+    public void setmIconSelectedDrawable(Drawable mIconSelectedDrawable) {
+        this.mIconSelectedDrawable = mIconSelectedDrawable;
+    }
+
     private String mText;//文本
     private int mTextSize = 12;//文字大小 默认为12sp
     private int mTextColorNormal = 0xFF999999;    //描述文本的默认显示颜色
@@ -36,6 +49,22 @@ public class BottomBarItem extends LinearLayout {
     private int mIconWidth;//图标的宽度
     private int mIconHeight;//图标的高度
     private int mItemPadding;//BottomBarItem的padding
+
+
+//    public void mIconSelectedResourceId(int mImageSelected) {
+//        this.mIconSelectedResourceId = mImageSelected;
+//    }
+
+    public void setmTextColorSelected(int mTextColorSelected) {
+        this.mTextColorSelected = mTextColorSelected;
+    }
+
+
+    public void setStatus(boolean isSelected) {
+        //mImageView.setImageResource(isSelected ? mIconSelectedResourceId : mIconNormalResourceId);
+        mImageView.setImageDrawable(isSelected ? mIconSelectedDrawable : mIconNormalDrawable);
+        mTextView.setTextColor(isSelected ? mTextColorSelected : mTextColorNormal);
+    }
 
 
     private ImageView mImageView;
@@ -63,8 +92,8 @@ public class BottomBarItem extends LinearLayout {
 
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.BottomBarItem);
 
-        mIconNormalResourceId = ta.getResourceId(R.styleable.BottomBarItem_iconNormal, -1);
-        mIconSelectedResourceId = ta.getResourceId(R.styleable.BottomBarItem_iconSelected, -1);
+        //mIconNormalResourceId = ta.getResourceId(R.styleable.BottomBarItem_iconNormal, -1);
+        //mIconSelectedResourceId = ta.getResourceId(R.styleable.BottomBarItem_iconSelected, -1);
 
         mText = ta.getString(R.styleable.BottomBarItem_itemText);
         mTextSize = ta.getDimensionPixelSize(R.styleable.BottomBarItem_itemTextSize, UIUtils.sp2px(mContext, mTextSize));
@@ -94,13 +123,13 @@ public class BottomBarItem extends LinearLayout {
      * 检查传入的值是否完善
      */
     private void checkValues() {
-        if (mIconNormalResourceId == -1) {
-            throw new IllegalStateException("您还没有设置默认状态下的图标，请指定iconNormal的图标");
-        }
-
-        if (mIconSelectedResourceId == -1) {
-            throw new IllegalStateException("您还没有设置选中状态下的图标，请指定iconSelected的图标");
-        }
+//        if (mIconNormalResourceId == -1) {
+//            throw new IllegalStateException("您还没有设置默认状态下的图标，请指定iconNormal的图标");
+//        }
+//
+//        if (mIconSelectedResourceId == -1) {
+//            throw new IllegalStateException("您还没有设置选中状态下的图标，请指定iconSelected的图标");
+//        }
 
         if (mOpenTouchBg && mTouchDrawable == null) {
             //如果有开启触摸背景效果但是没有传对应的drawable
@@ -123,7 +152,11 @@ public class BottomBarItem extends LinearLayout {
         mTvNotify = (TextView) view.findViewById(R.id.tv_point);
         mTextView = (TextView) view.findViewById(R.id.tv_text);
 
-        mImageView.setImageResource(mIconNormalResourceId);
+        if (mIconNormalDrawable != null) {
+            mImageView.setImageDrawable(mIconNormalDrawable);
+        }
+
+        //mImageView.setImageResource(mIconNormalResourceId);
 
         if (mIconWidth != 0 && mIconHeight != 0) {
             //如果有设置图标的宽度和高度，则设置ImageView的宽高
@@ -146,7 +179,7 @@ public class BottomBarItem extends LinearLayout {
 
         if (mOpenTouchBg) {
             //如果有开启触摸背景
-            setBackground(mTouchDrawable);
+            //setBackground(mTouchDrawable);
         }
 
         addView(view);
@@ -160,18 +193,14 @@ public class BottomBarItem extends LinearLayout {
         return mTextView;
     }
 
-    public void setIconNormalResourceId(int mIconNormalResourceId) {
-        this.mIconNormalResourceId = mIconNormalResourceId;
-    }
+//    public void setIconNormalResourceId(int mIconNormalResourceId) {
+//        this.mIconNormalResourceId = mIconNormalResourceId;
+//    }
+//
+//    public void setIconSelectedResourceId(int mIconSelectedResourceId) {
+//        this.mIconSelectedResourceId = mIconSelectedResourceId;
+//    }
 
-    public void setIconSelectedResourceId(int mIconSelectedResourceId) {
-        this.mIconSelectedResourceId = mIconSelectedResourceId;
-    }
-
-    public void setStatus(boolean isSelected) {
-        mImageView.setImageResource(isSelected ? mIconSelectedResourceId : mIconNormalResourceId);
-        mTextView.setTextColor(isSelected ? mTextColorSelected : mTextColorNormal);
-    }
 
     private void setTvVisiable(TextView tv) {
         //都设置为不可见

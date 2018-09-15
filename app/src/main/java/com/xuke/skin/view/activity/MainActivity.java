@@ -38,6 +38,17 @@ public class MainActivity extends BaseMainActivity {
 
     @Override
     protected void initData() {
+        tab4C2c.setmIconNormalDrawable(getResources().getDrawable(R.mipmap.icon_c2c_normal));
+        tab4C2c.setmIconSelectedDrawable(getResources().getDrawable(R.mipmap.icon_c2c_selected));
+        tab5Account.setmIconNormalDrawable(getResources().getDrawable(R.mipmap.icon_account_normal));
+        tab5Account.setmIconSelectedDrawable(getResources().getDrawable(R.mipmap.icon_account_selected));
+
+        dynamicAddView(tab4C2c, "mainIndicator_color", R.color.c_3b99ff);
+        dynamicAddView(tab5Account, "mainIndicator_color", R.color.c_3b99ff);
+        dynamicAddView(tab4C2c, "mipmap", R.mipmap.icon_c2c_selected);
+        dynamicAddView(tab5Account, "mipmap", R.mipmap.icon_account_selected);
+
+
         MarketFragment marketFragment = new MarketFragment();
         AccountFragment accountFragment = new AccountFragment();
 

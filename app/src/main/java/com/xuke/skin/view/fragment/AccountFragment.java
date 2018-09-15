@@ -62,7 +62,7 @@ public class AccountFragment extends BaseFragment {
                 break;
             case R.id.cv_account_setting:
                 //设置Setting
-                SkinManager.getInstance().loadSkin("theme-20180914.skin",
+                SkinManager.getInstance().loadSkin("theme-20180915.skin",
                         new SkinLoaderListener() {
                             @Override
                             public void onStart() {
