@@ -39,4 +39,13 @@
             }
 
     );
-```
+```  
+
+### 10.遇到问题
+
+1. recyclerview的adapter根据数据的类型 设置TextView的背景为shape文件时 在xml里面不要设置默认的shape文件 否则换肤之后列表的该TextView所有背景全是默认设置的shape颜色
+
+
+
+
+
