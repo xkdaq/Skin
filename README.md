@@ -45,6 +45,21 @@
 
 1. recyclerview的adapter根据数据的类型 设置TextView的背景为shape文件时 在xml里面不要设置默认的shape文件 否则换肤之后列表的该TextView所有背景全是默认设置的shape颜色
 
+2. 版本号"implementation 'com.solid.skin:skinlibrary:2.0.0-beta3'" 这个版本里面,设置夜间模式的时候,没有考虑到资源文件放在mipmap的情况,具体文件SkinManager.java的getNightDrawable()方法,如果将换肤的图片放在mipmap文件夹就会找不到文件报错
+
+```
+android.view.InflateExceptception: Binary XML file line #0: Binary XML file line #0: Error inflating class LinearLayout
+android.content.res.Resources.getDrawable(Rle(le(Resources.java:833))
+android.content.res.Resources.getDrawable(Rle(le(Resources.java:805))
+solid.ren.skinlibrary.loader.SkinManager.getNightDrawarawable(le(SkinManager.java:341)
+solid.ren.skinlibrary.utils.SkinResourcesUtils.getNightDrawarawable(le(SkinResourcesUtils.java:29)
+....
+```
+解决: 
+   1.依赖lirbrary,修改getNightDrawable()方法里面的判断,如果取drawable值取不到就取mipmap的
+   2.或者就将mipmap的图片移到drawable
+
+
 
 
 
